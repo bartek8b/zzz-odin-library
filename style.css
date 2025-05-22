@@ -16,11 +16,7 @@ header {
   justify-content: space-around;
   align-items: center;
   padding-block: 20px;
-  background: linear-gradient(
-    hsl(var(--accentLight)),
-    hsl(var(--accent)),
-    hsl(var(--accentLight))
-  );
+  background: linear-gradient(hsl(var(--accent)), hsl(var(--accentLight)));
 
   h1 {
     font-size: calc(1.8rem - 0.1dvw);
@@ -83,7 +79,7 @@ main {
       padding: 8px;
       aspect-ratio: 2 / 1;
       box-shadow: 1px 1px hsl(var(--dark), 0.5);
-      &:active{
+      &:active {
         box-shadow: inset 1px 1px hsl(var(--dark));
       }
     }
@@ -91,4 +87,9 @@ main {
       margin-left: 16px;
     }
   }
+}
+
+footer{
+  font-size: .8rem;
+  height: 16px;
 }
