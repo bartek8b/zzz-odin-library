@@ -1,0 +1,59 @@
+body{
+    width: 100%;
+    height: 100dvh;
+    color: hsl(var(--dark));    
+}
+:root{
+    --dark: 0, 0%, 15%;
+    --light: 0, 0%, 60%;
+    --accent: 200, 70%, 40%;
+    --accentLight: 200, 60%, 60%;
+}
+header{
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-block: 20px;
+    background: linear-gradient(hsl(var(--accentLight)), hsl(var(--accent)), hsl(var(--accentLight)));
+
+    h1{
+        font-size: 1.8rem;
+    }
+
+    button{
+        background-color: hsl(var(--accent));
+        width: 20%;
+        min-height: 50px;
+        border-radius: 8px;
+        font-size: 1.3rem;
+        cursor: pointer;
+        box-shadow: 1px 1px hsl(var(--dark));
+        border: none;
+        padding: 8px;
+
+        &:hover{
+            background-color: hsl(var(--accentLight),0.9);
+        }
+
+        &:active{
+            box-shadow: inset 2px 2px hsl(var(--dark));
+        }
+    }
+}
+main{
+    min-height: calc(100dvh - 100px);
+    background-color: hsl(var(--accent));
+    display: grid;
+    gap: 16px;
+    padding: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 1fr;
+
+    div{
+        min-height: 100px;
+        background-color: hsl(var(--accentLight));
+        border-radius: 8px;
+        padding: 16px;
+    }
+}
