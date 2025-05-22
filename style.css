@@ -51,7 +51,8 @@ main{
     grid-auto-rows: 1fr;
 
     div{
-        min-height: 100px;
+        min-height: 250px;
+        max-height: fit-content;
         background-color: hsl(var(--accentLight));
         border-radius: 8px;
         padding: 16px;
