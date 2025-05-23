@@ -9,6 +9,7 @@ body {
   --light: 0, 0%, 60%;
   --accent: 30, 47%, 54%;
   --accentLight: 21, 13%, 79%;
+  --shadow: 1px 1px hsl(var(--dark), 0.5);
 }
 header {
   height: 100px;
@@ -29,7 +30,7 @@ header {
     border-radius: 8px;
     font-size: calc(1.3rem - 0.1dvw);
     cursor: pointer;
-    box-shadow: 1px 1px hsl(var(--dark));
+    box-shadow: var(--shadow);
     border: none;
     padding-block: 8px;
     padding-inline: 12px;
@@ -43,7 +44,7 @@ header {
     }
 
     &:active {
-      box-shadow: inset 1px 1px hsl(var(--dark));
+      box-shadow: inset var(--shadow);
     }
 
     span {
@@ -66,7 +67,7 @@ main {
     background-color: hsl(var(--accentLight));
     border-radius: 8px;
     padding: 24px;
-    box-shadow: 1px 1px hsl(var(--dark), 0.5);
+    box-shadow: var(--shadow);
     font-size: calc(1rem + 0.1dvw);
     align-content: center;
 
@@ -78,12 +79,12 @@ main {
       cursor: pointer;
       padding: 8px;
       aspect-ratio: 2 / 1;
-      box-shadow: 1px 1px hsl(var(--dark), 0.5);
+      box-shadow: var(--shadow);
       &:hover{
         background-color: hsl(var(--accent),0.8);
       }
       &:active {
-        box-shadow: inset 1px 1px hsl(var(--dark));
+        box-shadow: inset var(--shadow);
       }
     }
     button:nth-last-child(1) {
@@ -91,8 +92,26 @@ main {
     }
   }
 }
-
 footer{
   font-size: .8rem;
   height: 16px;
+}
+dialog{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  box-shadow: var(--shadow);
+
+  border: none;
+  border-radius: 8px;
+  background-color: hsl(var(--accentLight));
+  border: 2px solid hsl(var(--accent));
+  
+}
+
+::backdrop{
+  background-color: hsl(var(--accent));
+  opacity: .95;
 }
