@@ -22,22 +22,43 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(book);
 }
 
+
+
+
 // EVENT LISTENERS
+let title = document.querySelector('input[name="title"]');
+let author = document.querySelector('input[name="author"]');
+let pages = document.querySelector('input[name="pages"]');
+
+function clearForm(){
+  title.value = "";
+  author.value = "";
+  pages.value = "";
+  document.querySelector('input[name="read"][value="no"]').checked = true;
+}
+
 addBookBtn.addEventListener("click", () => {
   modal.showModal();
 });
 
 cancelBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  clearForm()
   modal.close();
 });
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  let title = document.querySelector('input[name="title"]').value;
-  console.log(title);
+
+  let read = document.querySelector('input[name="read"][value="no"]').checked
+  ? "No &#10008;"
+  : "Yes &#10004;";
+  
+  addBookToLibrary(title.value, author.value, pages.value, read);
+
+
+
+  clearForm()
   modal.close();
 });
 
-// addBookToLibrary("fsdfsdf", "author", "pages", "read");
-// console.log(myLibrary);
