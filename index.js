@@ -3,6 +3,8 @@ const modal = document.querySelector("dialog");
 const cancelBtn = document.querySelector("#cancelBtn");
 const submitBtn = document.querySelector("#submitBtn");
 const main = document.querySelector("main");
+// const toggleBtns = document.querySelectorAll(".toggleBtn");
+// const deleteBtn = document.querySelectorAll(".deleteBtn");
 
 const myLibrary = [];
 
@@ -25,9 +27,10 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayLibrary() {
-  const book = myLibrary[myLibrary.length - 1];
-  const newDiv = document.createElement("div");
-  newDiv.innerHTML = `
+  main.innerHTML = "";
+  myLibrary.forEach((book) => {
+    const newDiv = document.createElement("div");
+    newDiv.innerHTML = `
         <span class="bookIcon">&#128366;</span>
         <p>Title: ${book.title}</p>
         <p>Author: ${book.author}</p>
@@ -37,8 +40,9 @@ function displayLibrary() {
           <button class="cardButton toggleBtn" data-id="${book.id}">Toggle</button><button class="cardButton deleteBtn" data-id="${book.id}">Delete</button>
         </section>
     `;
-  main.appendChild(newDiv);
-  };
+    main.appendChild(newDiv);
+  });
+}
 
 // EVENT LISTENERS
 let title = document.querySelector('input[name="title"]');
@@ -74,9 +78,9 @@ submitBtn.addEventListener("click", (e) => {
 
     clearForm();
     modal.close();
-  }
-  else{
+  } else {
     alert("All fields needt to be filled");
   }
-  
 });
+
+window.onload = addBookToLibrary("Szyuka wojny", "Sun tzu", 125, "No &#10008;");
