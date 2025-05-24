@@ -2,6 +2,7 @@ const addBookBtn = document.querySelector("#addBookBtn");
 const modal = document.querySelector("dialog");
 const cancelBtn = document.querySelector("#cancelBtn");
 const submitBtn = document.querySelector("#submitBtn");
+const main = document.querySelector("main");
 
 const myLibrary = [];
 
@@ -20,17 +21,28 @@ function addBookToLibrary(title, author, pages, read) {
   const id = self.crypto.randomUUID();
   const book = new Book(title, author, pages, read, id);
   myLibrary.push(book);
+  displayLibrary();
 }
 
-
-
+function displayLibrary() {
+  const book = myLibrary[myLibrary.length - 1];
+  const newDiv = document.createElement("div");
+  newDiv.innerHTML = `
+        <span class="bookIcon">&#128366;</span>
+        <p>Title: ${book.title}</p>
+        <p>Author: ${book.author}</p>
+        <p>Pages: ${book.pages}</p>
+        <p>Read: ${book.read}</p>
+    `;
+  main.appendChild(newDiv);
+  };
 
 // EVENT LISTENERS
 let title = document.querySelector('input[name="title"]');
 let author = document.querySelector('input[name="author"]');
 let pages = document.querySelector('input[name="pages"]');
 
-function clearForm(){
+function clearForm() {
   title.value = "";
   author.value = "";
   pages.value = "";
@@ -43,22 +55,25 @@ addBookBtn.addEventListener("click", () => {
 
 cancelBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  clearForm()
+  clearForm();
   modal.close();
 });
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  let read = document.querySelector('input[name="read"][value="no"]').checked
-  ? "No &#10008;"
-  : "Yes &#10004;";
+  if (title.value && author.value && pages.value) {
+    let read = document.querySelector('input[name="read"][value="no"]').checked
+      ? "No &#10008;"
+      : "Yes &#10004;";
+
+    addBookToLibrary(title.value, author.value, pages.value, read);
+
+    clearForm();
+    modal.close();
+  }
+  else{
+    alert("All fields needt to be filled");
+  }
   
-  addBookToLibrary(title.value, author.value, pages.value, read);
-
-
-
-  clearForm()
-  modal.close();
 });
-

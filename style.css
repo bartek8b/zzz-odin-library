@@ -78,7 +78,10 @@ main {
     span {
       display: block;
       text-align: center;
-    }    
+    }
+    section{
+      margin-top: 16px;
+    } 
   }
 }
 .cardButton {
