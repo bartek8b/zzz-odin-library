@@ -10,11 +10,15 @@
   <body>
     <header>
       <h1>&#129718; Virtual Library</h1>
-      <button id="addBookBtn">Add<span aria-label="book">&#128366;</span></button>
+      <button id="addBookBtn">
+        Add<span aria-label="book" class="bookIcon">&#128366;</span>
+      </button>
     </header>
 
     <main>
       <div>
+        <span class="bookIcon">&#128366;</span>
+        <br />
         Title: "The Godfather"
         <br /><br />
         Author: Mario Puzo
@@ -23,15 +27,43 @@
         <br /><br />
         Read: Yes &#10004; No &#10008;
         <br /><br />
-        <button>Toggle</button><button>Delete</button>
+        <button class="cardButton">Toggle</button><button class="cardButton">Delete</button>
       </div>
       <div></div>
       <div></div>
       <div></div>
     </main>
 
-    <dialog>This is dialog okno</dialog>
+    <dialog>
+      <form method="dialog">
+        <legend><span class="bookIcon">&#128366;</span></legend>
+        <div>
+          <label for="title">Title</label>
+          <input type="text" for="title" />
+        </div>
+        <div>
+          <label for="author">Author</label>
+          <input type="text" for="author" />
+        </div>
+        <div>
+          <label for="pages">Pages</label>
+          <input type="number" for="pages" min="2">
+        </div>
+        <div style="justify-content: left;">
+          <label type="radio" for="read">Read?</label>
+          <div class="radioContainer">
+            <input type="radio" name="radio" value="yes"><p>Yes &#10004;</p>
+            <input type="radio" name="radio" value="no" checked> <p>No &#10008;</p>
+          </div>
+          
+        </div>
+        <div>
+          <button class="cardButton" type="submit" id="submitBtn">Confirm</button>
+          <button class="cardButton" id="cancelBtn">Cancel</button>
+        </div>
+      </form>
+    </dialog>
 
-    <script src="index.js" ></script>
+    <script src="index.js"></script>
   </body>
 </html>
