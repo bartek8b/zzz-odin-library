@@ -33,25 +33,25 @@
     </main>
 
     <dialog>
-      <form method="dialog">
+      <form method="post">
         <legend><span class="bookIcon">&#128366;</span></legend>
         <div>
           <label for="title">Title</label>
-          <input type="text" for="title" required/>
+          <input type="text" for="title" name="title" required/>
         </div>
         <div>
           <label for="author">Author</label>
-          <input type="text" for="author" required/>
+          <input type="text" for="author" name="author" required/>
         </div>
         <div>
           <label for="pages">Pages</label>
-          <input type="number" for="pages" min="2" required>
+          <input type="number" for="pages" name="pages" min="2" required>
         </div>
         <div style="justify-content: left;">
           <label type="radio" for="read">Read?</label>
           <div class="radioContainer">
-            <input type="radio" name="radio" value="yes"><p>Yes &#10004;</p>
-            <input type="radio" name="radio" value="no" checked> <p>No &#10008;</p>
+            <input type="radio" name="read" value="yes"><p>Yes &#10004;</p>
+            <input type="radio" name="read" value="no" checked> <p>No &#10008;</p>
           </div>
           
         </div>
