@@ -156,6 +156,6 @@ input{
 }
 
 ::backdrop {
-  background-color: hsl(var(--accent));
+  background: linear-gradient(45deg, hsl(var(--accent)), hsl(var(--accentLight)), hsl(var(--accent)));
   opacity: 0.95;
 }
