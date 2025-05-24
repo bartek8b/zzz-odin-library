@@ -33,6 +33,9 @@ function displayLibrary() {
         <p>Author: ${book.author}</p>
         <p>Pages: ${book.pages}</p>
         <p>Read: ${book.read}</p>
+        <section>
+          <button class="cardButton toggleBtn" data-id="${book.id}">Toggle</button><button class="cardButton deleteBtn" data-id="${book.id}">Delete</button>
+        </section>
     `;
   main.appendChild(newDiv);
   };
