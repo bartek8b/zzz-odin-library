@@ -7,6 +7,7 @@ body {
 }
 :root {
   --dark: 0, 0%, 10%;
+  --light: 0, 0%, 90%;
   --accent: 30, 47%, 54%;
   --accentLight: 21, 13%, 79%;
   --shadow: 1px 1px hsl(var(--dark), 0.5);
