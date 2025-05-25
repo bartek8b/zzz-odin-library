@@ -48,9 +48,9 @@ function displayLibrary() {
       const dataId = button.getAttribute("data-id");
       for (const book of myLibrary) {
         if (dataId === book.id) {
-          book.read === "No &#10008;"
+          book.read === "No &#10006;"
             ? (book.read = "Yes &#10004;")
-            : (book.read = "No &#10008;");
+            : (book.read = "No &#10006;");
           displayLibrary();
         }
       }
@@ -98,8 +98,8 @@ submitBtn.addEventListener("click", (e) => {
 
   if (title.value && author.value && pages.value) {
     let read = document.querySelector('input[name="read"][value="no"]').checked
-      ? "No &#10008;"
-      : "Yes &#10004;";
+      ? "No &#10006;"
+      : "Yes &#10004;";z
 
     addBookToLibrary(title.value, author.value, pages.value, read);
 
@@ -110,9 +110,9 @@ submitBtn.addEventListener("click", (e) => {
   }
 });
 
-addBookToLibrary("The Art of War", "Sun Tzu", 125, "No &#10008;");
+addBookToLibrary("The Art of War", "Sun Tzu", 125, "No &#10006;");
 addBookToLibrary("The Godfather", "Mario Puzo", 350, "Yes &#10004;");
 addBookToLibrary("Lord of the Rings", "J.R.R. Tolkien", 900, "Yes &#10004;");
 addBookToLibrary("All Quiet on the Western Front", "E.M. Remarque", 200, "Yes &#10004;");
-addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 430, "No &#10008;");
-addBookToLibrary("Pride and Prejudice", "Jane Austen", 280, "No &#10008;");
+addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 430, "No &#10006;");
+addBookToLibrary("Pride and Prejudice", "Jane Austen", 280, "No &#10006;");
