@@ -99,7 +99,7 @@ submitBtn.addEventListener("click", (e) => {
   if (title.value && author.value && pages.value) {
     let read = document.querySelector('input[name="read"][value="no"]').checked
       ? "No &#10006;"
-      : "Yes &#10004;";z
+      : "Yes &#10004;";
 
     addBookToLibrary(title.value, author.value, pages.value, read);
 
