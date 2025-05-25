@@ -3,8 +3,8 @@ const modal = document.querySelector("dialog");
 const cancelBtn = document.querySelector("#cancelBtn");
 const submitBtn = document.querySelector("#submitBtn");
 const main = document.querySelector("main");
-const toggleBtns = document.querySelectorAll(".toggleBtn");
-const deleteBtns = document.querySelectorAll(".deleteBtn");
+
+// const deleteBtns = document.querySelectorAll(".deleteBtn");
 
 const myLibrary = [];
 
@@ -42,8 +42,16 @@ function displayLibrary() {
     `;
     main.appendChild(newDiv);    
   });
-  
-    
+  const toggleBtns = document.querySelectorAll(".toggleBtn");
+  toggleBtns.forEach((button) => button.addEventListener("click", () => {
+      const dataId = button.getAttribute("data-id");
+      for(const book of myLibrary){
+        if(dataId === book.id){
+          book.read === "No &#10008;" ? book.read = "Yes &#10004;" : book.read = "No &#10008;";
+          displayLibrary();
+        }
+      }
+    }));    
 }
 
 // EVENT LISTENERS
