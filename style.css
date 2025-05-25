@@ -7,7 +7,6 @@ body {
 }
 :root {
   --dark: 0, 0%, 10%;
-  --light: 0, 0%, 90%;
   --accent: 30, 47%, 54%;
   --accentLight: 21, 13%, 79%;
   --shadow: 1px 1px hsl(var(--dark), 0.5);
@@ -100,9 +99,9 @@ main {
         box-shadow: inset var(--shadow);
       }
     }
-    button:nth-last-child(1) {
-      margin-left: 16px;
-    }
+button:nth-last-child(1) {
+  margin-left: 16px;
+}
 dialog {
   position: fixed;
   top: 50%;

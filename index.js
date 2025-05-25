@@ -4,8 +4,6 @@ const cancelBtn = document.querySelector("#cancelBtn");
 const submitBtn = document.querySelector("#submitBtn");
 const main = document.querySelector("main");
 
-// const deleteBtns = document.querySelectorAll(".deleteBtn");
-
 const myLibrary = [];
 
 function Book(title, author, pages, read, id) {
@@ -22,8 +20,8 @@ function Book(title, author, pages, read, id) {
 function addBookToLibrary(title, author, pages, read) {
   const id = self.crypto.randomUUID();
   const book = new Book(title, author, pages, read, id);
-  myLibrary.push(book);  
-  displayLibrary();  
+  myLibrary.push(book);
+  displayLibrary();
 }
 
 function displayLibrary() {
@@ -40,18 +38,37 @@ function displayLibrary() {
           <button class="cardButton toggleBtn" data-id="${book.id}">Toggle</button><button class="cardButton deleteBtn" data-id="${book.id}">Delete</button>
         </section>
     `;
-    main.appendChild(newDiv);    
+    main.appendChild(newDiv);
   });
   const toggleBtns = document.querySelectorAll(".toggleBtn");
-  toggleBtns.forEach((button) => button.addEventListener("click", () => {
+  const deleteBtns = document.querySelectorAll(".deleteBtn");
+  
+  toggleBtns.forEach((button) =>
+    button.addEventListener("click", () => {
       const dataId = button.getAttribute("data-id");
-      for(const book of myLibrary){
-        if(dataId === book.id){
-          book.read === "No &#10008;" ? book.read = "Yes &#10004;" : book.read = "No &#10008;";
+      for (const book of myLibrary) {
+        if (dataId === book.id) {
+          book.read === "No &#10008;"
+            ? (book.read = "Yes &#10004;")
+            : (book.read = "No &#10008;");
           displayLibrary();
         }
       }
-    }));    
+    })
+  );
+
+  deleteBtns.forEach((button) =>
+    button.addEventListener("click", () => {
+      const dataId = button.getAttribute("data-id");
+      const index = myLibrary.findIndex(book => book.id === dataId);
+      for (const book of myLibrary) {
+        if (dataId === book.id) {
+          myLibrary.splice(index, 1);
+          displayLibrary();
+        }
+      }
+    })
+  );
 }
 
 // EVENT LISTENERS
@@ -93,5 +110,9 @@ submitBtn.addEventListener("click", (e) => {
   }
 });
 
-addBookToLibrary("Sztuka wojny", "Sun tzu", 125, "No &#10008;");
-addBookToLibrary("Godfather", "Mario Puzo", 350, "Yes &#10004;");
+addBookToLibrary("The Art of War", "Sun Tzu", 125, "No &#10008;");
+addBookToLibrary("The Godfather", "Mario Puzo", 350, "Yes &#10004;");
+addBookToLibrary("Lord of the Rings", "J.R.R. Tolkien", 900, "Yes &#10004;");
+addBookToLibrary("All Quiet on the Western Front", "E.M. Remarque", 200, "Yes &#10004;");
+addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 430, "No &#10008;");
+addBookToLibrary("Pride and Prejudice", "Jane Austen", 280, "No &#10008;");
