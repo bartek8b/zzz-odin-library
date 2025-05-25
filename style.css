@@ -52,7 +52,7 @@ header {
   }
 }
 .bookIcon {
-  font-size: var(--bookIconSize);
+  height: var(--bookIconSize);
 }
 main {
   min-height: calc(100dvh - 100px);
