@@ -136,14 +136,14 @@ dialog {
     }
   }
 }
-.radioContainer {
-  input {
-    margin-right: 8px;
-    &:last-of-type {
-      margin-left: 32px;
-    }
+.radioContainer {  
+  display: block;
+  margin-left: 32px;
+  label{
+    margin-left: 16px;
   }
-}
+  }
+
 input{
   background-color: hsl(var(--light));
   border: 2px solid hsl(var(--accent), 0.5);

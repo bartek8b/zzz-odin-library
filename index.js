@@ -3,8 +3,8 @@ const modal = document.querySelector("dialog");
 const cancelBtn = document.querySelector("#cancelBtn");
 const submitBtn = document.querySelector("#submitBtn");
 const main = document.querySelector("main");
-// const toggleBtns = document.querySelectorAll(".toggleBtn");
-// const deleteBtn = document.querySelectorAll(".deleteBtn");
+const toggleBtns = document.querySelectorAll(".toggleBtn");
+const deleteBtns = document.querySelectorAll(".deleteBtn");
 
 const myLibrary = [];
 
@@ -22,8 +22,8 @@ function Book(title, author, pages, read, id) {
 function addBookToLibrary(title, author, pages, read) {
   const id = self.crypto.randomUUID();
   const book = new Book(title, author, pages, read, id);
-  myLibrary.push(book);
-  displayLibrary();
+  myLibrary.push(book);  
+  displayLibrary();  
 }
 
 function displayLibrary() {
@@ -40,8 +40,10 @@ function displayLibrary() {
           <button class="cardButton toggleBtn" data-id="${book.id}">Toggle</button><button class="cardButton deleteBtn" data-id="${book.id}">Delete</button>
         </section>
     `;
-    main.appendChild(newDiv);
+    main.appendChild(newDiv);    
   });
+  
+    
 }
 
 // EVENT LISTENERS
@@ -79,8 +81,9 @@ submitBtn.addEventListener("click", (e) => {
     clearForm();
     modal.close();
   } else {
-    alert("All fields needt to be filled");
+    alert("All fields need to be filled");
   }
 });
 
-window.onload = addBookToLibrary("Szyuka wojny", "Sun tzu", 125, "No &#10008;");
+addBookToLibrary("Sztuka wojny", "Sun tzu", 125, "No &#10008;");
+addBookToLibrary("Godfather", "Mario Puzo", 350, "Yes &#10004;");
