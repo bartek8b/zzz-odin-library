@@ -53,6 +53,7 @@ header {
 }
 .bookIcon {
   height: var(--bookIconSize);
+  color: hsl(var(--dark));
 }
 main {
   min-height: calc(100dvh - 100px);
