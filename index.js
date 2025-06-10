@@ -7,18 +7,24 @@ const main = document.querySelector("main");
 const myLibrary = [];
 
 class Book {
-  constructor(title, author, pages, read, id) {
+  constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+  }
+}
+
+class BookIndexed extends Book {
+  constructor(title, author, pages, read, id) {
+    super(title, author, pages, read);
     this.id = id;
   }
 }
 
 function addBookToLibrary(title, author, pages, read) {
   const id = self.crypto.randomUUID();
-  const book = new Book(title, author, pages, read, id);
+  const book = new BookIndexed(title, author, pages, read, id);
   myLibrary.push(book);
   displayLibrary();
 }
