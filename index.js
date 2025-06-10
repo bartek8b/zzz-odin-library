@@ -6,15 +6,14 @@ const main = document.querySelector("main");
 
 const myLibrary = [];
 
-function Book(title, author, pages, read, id) {
-  if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
+class Book {
+  constructor(title, author, pages, read, id) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = id;
   }
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = id;
 }
 
 function addBookToLibrary(title, author, pages, read) {
@@ -42,7 +41,7 @@ function displayLibrary() {
   });
   const toggleBtns = document.querySelectorAll(".toggleBtn");
   const deleteBtns = document.querySelectorAll(".deleteBtn");
-  
+
   toggleBtns.forEach((button) =>
     button.addEventListener("click", () => {
       const dataId = button.getAttribute("data-id");
@@ -60,7 +59,7 @@ function displayLibrary() {
   deleteBtns.forEach((button) =>
     button.addEventListener("click", () => {
       const dataId = button.getAttribute("data-id");
-      const index = myLibrary.findIndex(book => book.id === dataId);
+      const index = myLibrary.findIndex((book) => book.id === dataId);
       for (const book of myLibrary) {
         if (dataId === book.id) {
           myLibrary.splice(index, 1);
@@ -113,6 +112,16 @@ submitBtn.addEventListener("click", (e) => {
 addBookToLibrary("The Art of War", "Sun Tzu", 125, "No &#10006;");
 addBookToLibrary("The Godfather", "Mario Puzo", 350, "Yes &#10004;");
 addBookToLibrary("Lord of the Rings", "J.R.R. Tolkien", 900, "Yes &#10004;");
-addBookToLibrary("All Quiet on the Western Front", "E.M. Remarque", 200, "Yes &#10004;");
-addBookToLibrary("Crime and Punishment", "Fyodor Dostoevsky", 430, "No &#10006;");
+addBookToLibrary(
+  "All Quiet on the Western Front",
+  "E.M. Remarque",
+  200,
+  "Yes &#10004;"
+);
+addBookToLibrary(
+  "Crime and Punishment",
+  "Fyodor Dostoevsky",
+  430,
+  "No &#10006;"
+);
 addBookToLibrary("Pride and Prejudice", "Jane Austen", 280, "No &#10006;");
